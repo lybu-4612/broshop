@@ -104,7 +104,6 @@ DATABASES = {
         'USER': config('User'),
         'PASSWORD': config('Password'),
         'HOST': config('Host'),
-        'Port': config('Port'),
     }
 }
 
