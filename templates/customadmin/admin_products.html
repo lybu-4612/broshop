@@ -1,0 +1,107 @@
+{% extends 'customadmin/admin_nav.html' %}
+
+{% load static %}
+
+    
+    
+    {% block content %}
+
+
+<!---end of navbar-->
+<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+
+            
+            
+            
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Product</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="{% url 'admin_home' %}">HomePage</a></li>
+                            <li class="breadcrumb-item active">Products</li>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-body">                                .
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Product Details
+                            </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">product_name</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">price</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">image</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">stock</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">is_available</th>
+                                            <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">category</th>
+                                        </tr>
+                                    </thead> 
+                                    <tbody>
+                                        {% for product in products %}
+                                        <tr>
+                                            <td class="align-middle text-center">
+                                                {{product.product_name}}</td>
+                                            <td class="align-middle text-center">
+                                                    {{product.price}}</th>
+                                            <td ><img src="{{ product.image.url }}" style="width:60px;"></td>
+                                            <td class="align-middle text-center">
+                                                {{product.stock}}</td>
+                                            <td class="align-middle text-center">
+                                                    {{product.is_available}}</td>
+                                            <td class="align-middle text-center">
+                                                        {{product.category}}</td>
+
+                                            <td class="align-middle" style="width: fit-content;">
+                                                <a href="{% url 'product_edit' product.id %}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="View_User" style="width: fit-content;">
+                                                    edit
+                                                </a>
+                                                </td>
+                                                <td class="align-middle" style="width: fit-content;">
+                                                    <a href="{% url 'add_product' %}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="View_User" style="width: fit-content;">
+                                                        Add
+                                                    </a>
+                                                    </td>
+
+                                                    <td class="align-middle" style="width: fit-content;">
+                        
+                                                    <a href="{% url 'product_delete' product.id %}" class="text-secondary font-weight-bold text-xs text-danger" data-toggle="tooltip" data-original-title="Edit user" style="width: fit-content;">
+                                                    delete
+                                                        </a>
+                                                    </td>
+                                    
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2022</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    
+        
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest " crossorigin="anonymous"></script>
+        <script src="{% static 'stat/js/datatables-simple-demo.js' %}"></script>
+    </body>
+</html>
+
+{% endblock %}

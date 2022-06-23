@@ -1,0 +1,61 @@
+
+
+{% extends 'customadmin/admin_nav.html' %}
+
+{% load crispy_forms_filters %}
+
+
+{% load static %}
+
+    
+    
+{% block content %}
+
+
+<!---end of navbar-->
+<link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+
+<!-- pageHeader -->
+
+
+<div id="layoutSidenav_content">
+
+
+<div class="wrapper " style="margin: 10px auto">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <div>
+        <h1>Add Category</h1>
+      </div>
+    </div>
+
+    <!-- Login Form -->
+    <form class="" action="{% url 'add_category' %}" method="POST"  enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="container">
+        <div class= "text-right">
+
+          </div>
+        {{ form|crispy }}
+        
+        
+        {% include 'includes/alerts.html' %}
+        
+        
+      <input type="submit" class=" btn btn-primary" value="submit" style="background:#5ba515;color:white">
+    </div>
+    </div>
+
+
+  </form>
+
+  <!-- Remind Passowrd -->
+
+</div>
+</div>
+</div>
+
+{% endblock %}
