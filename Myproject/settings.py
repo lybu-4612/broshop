@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG',cast=bool)  #True or false
 
-ALLOWED_HOSTS = ['broshopstore.herokuapp.com', '127.0.0.1','35.171.26.179',]
+ALLOWED_HOSTS = ['broshop.tk', '127.0.0.1','35.171.26.179',]
 
 
 # Application definition
